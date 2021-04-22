@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Interesgram</string>
+    <string name="app_name">Eclothes</string>
     <string name="next_button_text">下一步</string>
-    <string name="switch_login_text">已經有帳號了嗎？請登入。</string>
+    <string name="back_button_text">上一步</string>
     <string name="login_button_text">登入</string>
-    <string name="sign_up_button_text">註冊</string>
-    <string name="switch_sign_up_text">沒有帳戶嗎？請註冊。</string>
+    <string name="register_button_text">註冊</string>
+    <string name="switch_register_text">沒有帳戶嗎？請註冊。</string>
+    <string name="switch_login_text">已經有帳號了嗎？請登入。</string>
     <string name="profile_edit_button_text">編輯資料</string>
     <string name="search_user_follow_button_text">關注</string>
     <string name="search_user_following_button_text">已關注</string>

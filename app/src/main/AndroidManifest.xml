@@ -3,6 +3,8 @@
     package="com.example.eclothes">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,13 +13,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Eclothes"
         android:networkSecurityConfig="@xml/network_security_config">
-        <activity android:name=".LoginRegisterActivity"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".LoginRegisterActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity">
         </activity>
     </application>
 

@@ -1,5 +1,7 @@
 package com.example.eclothes.API;
 
+import com.example.eclothes.Models.CurrentMerchant;
+import com.example.eclothes.Models.CurrentUser;
 import com.example.eclothes.Models.Favorite;
 import com.example.eclothes.Models.Following;
 import com.example.eclothes.Models.Merchant;
@@ -26,18 +28,18 @@ import retrofit2.http.Query;
 public interface APIService {
     // Register
     @POST("api/v1/users/register")
-    Call<User> register(@Body User user);
+    Call<CurrentUser> register(@Body User user);
 
     @POST("api/v1/merchants/register")
-    Call<Merchant> register(@Body Merchant merchant);
+    Call<CurrentMerchant> register(@Body Merchant merchant);
 
 
     // Login
     @POST("api/v1/users/login")
-    Call<User> login(@Body User user);
+    Call<CurrentUser> login(@Body User user);
 
     @POST("api/v1/merchants/login")
-    Call<Merchant> login(@Body Merchant merchant);
+    Call<CurrentMerchant> login(@Body Merchant merchant);
 
 
     // User
@@ -70,9 +72,9 @@ public interface APIService {
     @GET("api/v1/products/{id}")
     Call<Product> getProduct(@Path("id") String productId);
 
-    @GET("api/v1/merchants/{merchantId}/products")
-    Call<Product> getProductsByMerchant(
-            @Path("merchantId") String merchantId,
+    @GET("api/v1/merchants/{id}/products")
+    Call<List<Product>> getProductsByMerchant(
+            @Path("id") String merchantId,
             @Query("name[regex]") String keyword,
             @Query("sort") String sort,
             @Query("category") String category,

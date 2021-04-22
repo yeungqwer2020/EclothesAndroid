@@ -1,5 +1,7 @@
 package com.example.eclothes.Models;
 
+import androidx.room.Embedded;
+
 import com.google.gson.annotations.SerializedName;
 
 public class Merchant {
@@ -12,19 +14,20 @@ public class Merchant {
     private String password; // required
     private String passwordConfirm; // required
     private String username;
+    @Embedded
     private Location location;
     private String photo;
     @SerializedName("description")
     private String desc;
 
     // login
-    public Merchant(String email, String password) {
-        this.email = email;
+    public Merchant(String username, String password) {
+        this.username = username;
         this.password = password;
     }
 
     // Register
-    public Merchant(String firstName, String lastName, String shopName, String phone, String email, String password, String passwordConfirm) {
+    public Merchant(String firstName, String lastName, String shopName, String phone, String email, String password, String passwordConfirm, String username) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.shopName = shopName;
@@ -32,6 +35,7 @@ public class Merchant {
         this.email = email;
         this.password = password;
         this.passwordConfirm = passwordConfirm;
+        this.username = username;
     }
 
     // Current Merchant given after login/register with required fields

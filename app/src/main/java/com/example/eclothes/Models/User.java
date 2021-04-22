@@ -9,17 +9,18 @@ public class User {
     private String password; // required
     private String passwordConfirm; // required
     private String gender; // required
-    private String username;
+    private String username; // required
     private String photo;
+    private String role;
 
     // login
-    public User(String email, String password) {
-        this.email = email;
+    public User(String username, String password) {
+        this.username = username;
         this.password = password;
     }
 
     // Register
-    public User(String firstName, String lastName, String phone, String email, String password, String passwordConfirm, String gender) {
+    public User(String firstName, String lastName, String phone, String email, String password, String passwordConfirm, String gender, String username) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phone = phone;
@@ -27,6 +28,7 @@ public class User {
         this.password = password;
         this.passwordConfirm = passwordConfirm;
         this.gender = gender;
+        this.username = username;
     }
 
     // Current User given after login/signup
@@ -117,5 +119,13 @@ public class User {
 
     public void setPhoto(String photo) {
         this.photo = photo;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }

@@ -2,14 +2,29 @@
     <string name="app_name">Eclothes</string>
 
     <string name="next_button_text">Next</string>
-    <string name="sign_up_button_text">Sign Up</string>
+    <string name="back_button_text">Back</string>
+    <string name="register_button_text">Sign Up</string>
     <string name="switch_login_text">Already have an account? Log in.</string>
-    <string name="switch_sign_up_text">Don\'t have an account? Sign up.</string>
+    <string name="switch_register_text">Don\'t have an account? Sign up.</string>
     <string name="login_button_text">Login</string>
     <string name="menu_home" translatable="false">Home</string>
     <string name="menu_search" translatable="false">Search</string>
     <string name="menu_profile" translatable="false">Profile</string>
     <string name="menu_follow" translatable="false">Follow</string>
+
+    <string name="hint_role_menu" translatable="false">Your role</string>
+    <string name="hint_gender_menu" translatable="false">Your gender</string>
+
+    <string-array name="roles">
+        <item name="role_menu_user" translatable="false">User</item>
+        <item name="role_menu_merchant" translatable="false">Merchant</item>
+    </string-array>
+
+    <string-array name="genders">
+        <item name="gender_menu_male" translatable="false">Male</item>
+        <item name="gender_menu_female" translatable="false">Female</item>
+    </string-array>
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
@@ -19,6 +34,10 @@
     <string name="hint_email" translatable="false">Email</string>
     <string name="hint_password" translatable="false">Password</string>
     <string name="hint_username" translatable="false">Username</string>
+    <string name="hint_first_name" translatable="false">First Name</string>
+    <string name="hint_last_name" translatable="false">Last Name</string>
+    <string name="hint_shop_name" translatable="false">Shop Name</string>
+    <string name="hint_phone" translatable="false">Phone Number</string>
     <string name="edit_profile_button_text" translatable="false">Apply</string>
     <string name="search_user_follow_button_text">Follow</string>
     <string name="search_user_following_button_text">Following</string>

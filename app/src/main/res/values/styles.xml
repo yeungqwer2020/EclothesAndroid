@@ -1,0 +1,61 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="actionModeBackground">@color/colorPrimary</item>
+        <item name="windowActionBarOverlay">true</item>
+
+<!--        <item name="android:windowTranslucentStatus">true</item>-->
+<!--        <item name="android:windowTranslucentNavigation">true</item>-->
+    </style>
+
+    <style name="Title">
+        <item name="android:text">Eclothes</item>
+        <item name="android:fontFamily">cursive</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">48sp</item>
+    </style>
+
+    <style name="ToolBarTitle" parent="TextAppearance.AppCompat.Title">
+        <item name="android:fontFamily">cursive</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="LayoutPadding">
+        <item name="android:paddingStart">32dp</item>
+        <item name="android:paddingEnd">32dp</item>
+    </style>
+
+    <style name="TextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/colorPrimaryDark</item>
+        <item name="hintTextColor">@color/colorPrimaryDark</item>
+        <item name="theme">@style/cursor</item>
+    </style>
+
+    <style name="cursor" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+<!--        <item name="colorControlActivated">@color/colorGray</item>-->
+    </style>
+
+    <style name="TabLayout">
+        <item name="tabIndicatorColor">@color/colorPrimaryDark</item>
+<!--        <item name="tabTextColor">@color/colorBlack</item>-->
+        <item name="tabSelectedTextColor">@color/colorPrimaryDark</item>
+        <item name="tabRippleColor">@android:color/transparent</item>
+        <item name="tabIndicatorFullWidth">false</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
+</resources>

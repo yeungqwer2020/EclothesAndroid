@@ -28,7 +28,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void getPosts() {
-        Call<List<Product>> call = APIManager.getInstance().getAPIService().getProducts(null, null, null, null, null, null);
+        Call<List<Product>> call = APIManager.getInstance().getAPIService().getProductsByMerchant(
+                "606b57c8a307473eb5d3f7f7",
+                null,
+                null,
+                null,
+                null,
+                null,
+                null);
 
         call.enqueue(new Callback<List<Product>>() {
             @Override

@@ -164,5 +164,6 @@ public interface APIService {
     @POST("api/v1/followings")
     Call<Following> addFollowing(@Body HashMap<String, String> map);
 
-
+    @DELETE("api/v1/followings/{id}")
+    Call<ResponseBody> removeFollowing(@Path("id") String followingId);
 }

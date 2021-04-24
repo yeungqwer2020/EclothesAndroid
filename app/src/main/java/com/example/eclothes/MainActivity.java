@@ -18,6 +18,7 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.List;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -32,7 +33,34 @@ public class MainActivity extends AppCompatActivity {
 
         textView = findViewById(R.id.textView);
 
-        addFollowing();
+
+        removeFollowing();
+    }
+
+    private void removeFollowing() {
+        AuthorizationInterceptor.setToken("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwN2M0NGExODZhZGFhZGNmZWM3MWY4NiIsImlhdCI6MTYxOTMwMDkyNCwiZXhwIjoxNjI3MDc2OTI0fQ.Isw6GzF9I6pI-xspWiW-Kq-1_Hyw9JffvcGvFN6iSng");
+
+        Call<ResponseBody> call = APIManager.getInstance().getAPIService().removeFollowing("608497f00f8a4c1cfb16679c");
+
+        call.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if(response.isSuccessful() && response.code() == 200){
+                    showMessage("Remove Follow Success");
+
+                }
+                try {
+                    Log.d("Remove Follow", response.code() + response.errorBody().string() + "");
+                } catch (Exception e) {
+                    Log.d("Null message", e.getMessage().toString());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Log.d("Remove Follow", "failure");
+            }
+        });
     }
 
     private void addFollowing() {

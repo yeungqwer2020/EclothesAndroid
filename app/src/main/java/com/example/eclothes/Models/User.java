@@ -13,6 +13,10 @@ public class User {
     private String photo;
     private String role;
 
+    public User() {
+
+    }
+
     // login
     public User(String username, String password) {
         this.username = username;
@@ -31,15 +35,6 @@ public class User {
         this.username = username;
     }
 
-    // Current User given after login/signup
-    public User(String _id, String firstName, String lastName, String phone, String email, String gender) {
-        this._id = _id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.phone = phone;
-        this.email = email;
-        this.gender = gender;
-    }
 
     public String get_id() {
         return _id;

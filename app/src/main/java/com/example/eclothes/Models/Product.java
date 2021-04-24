@@ -8,7 +8,7 @@ public class Product {
     private String _id;
     private String name; // required
     private Merchant merchant; // required
-    private String[] photos;
+    private List<String> photos;
     private double price; // required
     private String style;
     private Category category; // required
@@ -49,11 +49,11 @@ public class Product {
         this.merchant = merchant;
     }
 
-    public String[] getPhotos() {
+    public List<String> getPhotos() {
         return photos;
     }
 
-    public void setPhotos(String[] photos) {
+    public void setPhotos(List<String> photos) {
         this.photos = photos;
     }
 

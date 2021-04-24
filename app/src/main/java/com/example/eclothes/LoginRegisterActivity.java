@@ -19,6 +19,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.eclothes.API.AuthorizationInterceptor;
 import com.example.eclothes.Models.CurrentMerchant;
 import com.example.eclothes.Models.CurrentUser;
 import com.example.eclothes.Models.Merchant;
@@ -362,6 +363,37 @@ public class LoginRegisterActivity extends AppCompatActivity {
 
     }
 
+    private void update() {
+        User updatedUserPart = new User();
+        updatedUserPart.setFirstName("I am a cat");
+        Call<User> call2 = APIManager.getInstance().getAPIService().updateMe(updatedUserPart);
+
+        call2.enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                if(response.isSuccessful() && response.code() == 200){
+                    showMessage("Update Success");
+
+                    User user = response.body();
+
+                    String content = "";
+                    content += user.getFirstName() + "\n";
+                    content += user.getLastName() + "\n";
+                    content += user.getGender() + "\n";
+                    content += user.getUsername() + "\n";
+
+                    showMessage(content);
+                }
+                Log.d("Update", response.code() + "");
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+                Log.d("Login", "failure");
+            }
+        });
+    }
+
     private void login() {
         String username = edtUsernameLayout.getEditText().getText().toString().trim();
         String password = edtPasswordLayout.getEditText().getText().toString().trim();
@@ -369,6 +401,8 @@ public class LoginRegisterActivity extends AppCompatActivity {
         if (menuRole.getText().toString().trim().equals("User")) {
 
             User user = new User(username, password);
+
+            CurrentUser currentUser;
 
             Call<CurrentUser> call = APIManager.getInstance().getAPIService().login(user);
 
@@ -388,8 +422,15 @@ public class LoginRegisterActivity extends AppCompatActivity {
                         content += currentUser.getUser().getGender() + "\n";
                         content += currentUser.getUser().getUsername() + "\n";
 
+                        AuthorizationInterceptor.setToken(currentUser.getToken());
+
                         showMessage(content);
+
+                        update();
+
+
                     }
+                    Log.d("Login", response.code() + "");
                 }
 
                 @Override
@@ -397,6 +438,8 @@ public class LoginRegisterActivity extends AppCompatActivity {
                     Log.d("Login", "failure");
                 }
             });
+
+
 
         } else if (menuRole.getText().toString().trim().equals("Merchant")) {
 

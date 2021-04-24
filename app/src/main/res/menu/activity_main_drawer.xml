@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+    <!--UserNavView-->
+            <item
+                android:id="@+id/nav_recommendation"
+                android:icon="@drawable/ic_menu_recommendation"
+                android:title="@string/menu_recommendation"/>
+            <item
+                android:id="@+id/nav_favorite"
+                android:icon="@drawable/ic_menu_favorite"
+                android:title="@string/menu_favorite" />
+            <item
+                android:id="@+id/nav_shopnearby"
+                android:icon="@drawable/ic_menu_shopnearby"
+                android:title="@string/menu_shopNearBy" />
+            <item
+                android:id="@+id/nav_contactus"
+                android:icon="@drawable/ic_menu_contactus"
+                android:title="@string/menu_contactUS" />
+            <item
+                android:id="@+id/nav_setting_user"
+                android:icon="@drawable/ic_menu_setting"
+                android:title="@string/menu_settings" />
+
+            <!--ShopNavView-->
+            <item
+                android:id="@+id/nav_manageProduct"
+                android:icon="@drawable/ic_menu_merchant"
+                android:title="@string/menu_manageProduct"
+                android:visible="false"
+                android:enabled="false"/>
+            <item
+                android:id="@+id/nav_setting_shop"
+                android:icon="@drawable/ic_menu_setting"
+                android:title="@string/menu_settings"
+                android:visible="false"
+                android:enabled="false"/>
+
+            <!--ShopNavView-->
+            <item
+                android:id="@+id/nav_setting_admin"
+                android:icon="@drawable/ic_menu_setting"
+                android:title="@string/menu_settings"
+                android:visible="false"
+                android:enabled="false"/>
+
+    </group>
+</menu>

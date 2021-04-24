@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_recommendation">
+
+    <fragment
+        android:id="@+id/nav_recommendation"
+        android:name="com.example.eclothes.ui.recommendation.RecommendationFragment"
+        android:label="@string/menu_recommendation"
+        tools:layout="@layout/fragment_recommendation" />
+
+    <fragment
+        android:id="@+id/nav_favorite"
+        android:name="com.example.eclothes.ui.favorite.FavoriteFragment"
+        android:label="@string/menu_favorite"
+        tools:layout="@layout/fragment_favorite" />
+
+    <fragment
+        android:id="@+id/nav_shopnearby"
+        android:name="com.example.eclothes.ui.shopnearby.ShopnearbyFragment"
+        android:label="@string/menu_shopNearBy"
+        tools:layout="@layout/fragment_shopnearby" />
+
+    <fragment
+        android:id="@+id/nav_contactus"
+        android:name="com.example.eclothes.ui.contactus.ContactusFragment"
+        android:label="@string/menu_contactUS"
+        tools:layout="@layout/fragment_contactus" />
+
+    <fragment
+        android:id="@+id/nav_setting_user"
+        android:name="com.example.eclothes.ui.setting.user.SettingUserFragment"
+        android:label="@string/menu_settings"
+        tools:layout="@layout/fragment_setting_user" />
+
+    <fragment
+        android:id="@+id/nav_manageProduct"
+        android:name="com.example.eclothes.ui.manageproduct.ManageProductFragment"
+        android:label="@string/menu_manageProduct"
+        tools:layout="@layout/fragment_manageproduct" />
+
+    <fragment
+        android:id="@+id/nav_setting_shop"
+        android:name="com.example.eclothes.ui.setting.shop.SettingShopFragment"
+        android:label="@string/menu_settings"
+        tools:layout="@layout/fragment_setting_shop" />
+
+    <fragment
+        android:id="@+id/nav_setting_admin"
+        android:name="com.example.eclothes.ui.setting.admin.SettingAdminFragment"
+        android:label="@string/menu_settings"
+        tools:layout="@layout/fragment_setting_admin" />
+</navigation>

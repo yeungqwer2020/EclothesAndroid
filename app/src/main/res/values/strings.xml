@@ -41,5 +41,20 @@
     <string name="edit_profile_button_text" translatable="false">Apply</string>
     <string name="search_user_follow_button_text">Follow</string>
     <string name="search_user_following_button_text">Following</string>
+    <string name="title_activity_main_page">MainPage</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_recommendation">Recommendation</string>
+    <string name="menu_favorite">Favorite</string>
+    <string name="menu_shopNearBy">Shop Near By</string>
+    <string name="menu_contactUS">Contact Us</string>
+    <string name="menu_settings">Settings</string>
+    <string name="menu_manageProduct">Manage Product</string>
 
 </resources>

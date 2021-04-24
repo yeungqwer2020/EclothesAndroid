@@ -3,11 +3,19 @@ package com.example.eclothes;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.eclothes.API.AuthorizationInterceptor;
+import com.example.eclothes.Models.Following;
 import com.example.eclothes.Models.Merchant;
 import com.example.eclothes.Models.Product;
+import com.example.eclothes.Models.User;
 
+import org.json.JSONObject;
+
+import java.util.HashMap;
 import java.util.List;
 
 import retrofit2.Call;
@@ -24,7 +32,81 @@ public class MainActivity extends AppCompatActivity {
 
         textView = findViewById(R.id.textView);
 
-        getMerchants();
+        addFollowing();
+    }
+
+    private void addFollowing() {
+        AuthorizationInterceptor.setToken("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwN2M0NGExODZhZGFhZGNmZWM3MWY4NiIsImlhdCI6MTYxOTMwMDkyNCwiZXhwIjoxNjI3MDc2OTI0fQ.Isw6GzF9I6pI-xspWiW-Kq-1_Hyw9JffvcGvFN6iSng");
+
+        HashMap<String, String> map = new HashMap<>();
+        map.put("merchant", "606b57c8a307473eb5d3f7f7");
+
+        Call<Following> call = APIManager.getInstance().getAPIService().addFollowing(map);
+
+        call.enqueue(new Callback<Following>() {
+            @Override
+            public void onResponse(Call<Following> call, Response<Following> response) {
+                if(response.isSuccessful() && response.code() == 200){
+                    showMessage("Follow Success");
+
+                    Following following = response.body();
+
+                    String content = "";
+                    content += following.getMerchant().get_id() + "\n";
+                    content += following.getUser().get_id() + "\n";
+
+                    showMessage(content);
+                }
+                try {
+                    Log.d("Follow", response.code() + response.errorBody().string() + "");
+                } catch (Exception e) {
+                    Log.d("Null message", e.getMessage().toString());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Following> call, Throwable t) {
+                Log.d("Follow", "failure");
+            }
+        });
+    }
+
+    private void update() {
+        AuthorizationInterceptor.setToken("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwODE4ZjdmMGUwM2E0NDdkZTFlYjBjNCIsImlhdCI6MTYxOTI2NzA0MywiZXhwIjoxNjI3MDQzMDQzfQ.Dun9RBiSGaBTIdpgXPwYryfF8scxXOB3sCdcuD7rIAI");
+        User updatedUserPart = new User();
+        updatedUserPart.setFirstName("ggg");
+        updatedUserPart.setLastName("abc");
+        updatedUserPart.setUsername("helloworld");
+        Call<User> call2 = APIManager.getInstance().getAPIService().updateMe(updatedUserPart);
+
+        call2.enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                if(response.isSuccessful() && response.code() == 200){
+                    showMessage("Update Success");
+
+                    User user = response.body();
+
+                    String content = "";
+                    content += user.getFirstName() + "\n";
+                    content += user.getLastName() + "\n";
+                    content += user.getGender() + "\n";
+                    content += user.getUsername() + "\n";
+
+                    showMessage(content);
+                }
+                Log.d("Update", response.code() + "");
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+                Log.d("Login", "failure");
+            }
+        });
+    }
+
+    private void showMessage(String message) {
+        Toast.makeText(MainActivity.this, message, Toast.LENGTH_SHORT).show();
     }
 
     private void getPosts() {

@@ -9,6 +9,7 @@ import com.example.eclothes.Models.Product;
 import com.example.eclothes.Models.User;
 import com.example.eclothes.Models.Comment;
 
+import java.util.HashMap;
 import java.util.List;
 
 import okhttp3.RequestBody;
@@ -16,6 +17,8 @@ import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Headers;
@@ -55,7 +58,7 @@ public interface APIService {
 
     @GET("api/v1/users/{id}")
     @Headers("No-Authorization: true")
-    Call<Product> getUser(@Path("id") String userId);
+    Call<User> getUser(@Path("id") String userId);
 
     @PATCH("api/v1/users/me")
     Call<User> updateMe(@Body User user);
@@ -68,7 +71,7 @@ public interface APIService {
 
     @GET("api/v1/merchants/{id}")
     @Headers("No-Authorization: true")
-    Call<Product> getMerchant(@Path("id") String merchantId);
+    Call<Merchant> getMerchant(@Path("id") String merchantId);
 
 
     // Product
@@ -120,7 +123,7 @@ public interface APIService {
 
     @GET("api/v1/comments/{id}")
     @Headers("No-Authorization: true")
-    Call<Product> getComment(@Path("id") String commentId);
+    Call<Comment> getComment(@Path("id") String commentId);
 
     @POST("api/v1/comments")
     Call<Comment> createComment(@Body Comment comment);
@@ -157,5 +160,9 @@ public interface APIService {
     @GET("followings/{id}")
     @Headers("No-Authorization: true")
     Call<Following> getFollowing(@Path("id") String commentId);
+
+    @POST("api/v1/followings")
+    Call<Following> addFollowing(@Body HashMap<String, String> map);
+
 
 }

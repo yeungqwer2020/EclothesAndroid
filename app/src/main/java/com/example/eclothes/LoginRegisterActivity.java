@@ -366,6 +366,8 @@ public class LoginRegisterActivity extends AppCompatActivity {
     private void update() {
         User updatedUserPart = new User();
         updatedUserPart.setFirstName("I am a cat");
+        updatedUserPart.setLastName("abc");
+        updatedUserPart.setUsername("helloworld");
         Call<User> call2 = APIManager.getInstance().getAPIService().updateMe(updatedUserPart);
 
         call2.enqueue(new Callback<User>() {

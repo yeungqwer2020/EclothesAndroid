@@ -47,7 +47,7 @@ public class UserinfoActivity extends AppCompatActivity {
 
     private RequestQueue mQueue;
 
-    String userid;
+    String userid = UserStaticInformation.getUserId();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,7 +87,6 @@ public class UserinfoActivity extends AppCompatActivity {
         Bundle extras = getIntent().getExtras(); //get userid
         if (extras != null){
             //role = extras.getString("role");
-            userid = extras.getString("userid");
         }
 
         mQueue = Volley.newRequestQueue(UserinfoActivity.this);
@@ -150,8 +149,8 @@ public class UserinfoActivity extends AppCompatActivity {
     }
 
     private void showuserinfo() {
-        //String userid2 = userid; // set userid
-        String userid2 = "607394adb88a82667573ea56";
+        String userid2 = UserStaticInformation.getUserId(); // set userid
+        //String userid2 = "607394adb88a82667573ea56";
         String userinfourl = "http://ec2-54-175-85-90.compute-1.amazonaws.com/api/v1/users/" + userid2;
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, userinfourl, null, new Response.Listener<JSONObject>() {

@@ -118,7 +118,6 @@ public class ShopmainActivity extends AppCompatActivity {
             owner = true;
         else
             owner = false;
-        owner = true;
 
         if (owner == true)
             mBtnaddproduct.setVisibility(View.VISIBLE);

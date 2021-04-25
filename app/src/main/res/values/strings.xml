@@ -41,5 +41,12 @@
     <string name="edit_profile_button_text" translatable="false">Apply</string>
     <string name="search_user_follow_button_text">Follow</string>
     <string name="search_user_following_button_text">Following</string>
+    <string name="menu_recommendation">Recommendation</string>
+    <string name="menu_favorite">Favorite</string>
+    <string name="menu_username">temp_Username</string>
+    <string name="menu_shopnearby">Shop Near By</string>
+    <string name="menu_contactus">Contact Us</string>
+    <string name="menu_setting">Settings</string>
+    <string name="menu_manageproduct">Manage Product</string>
 
 </resources>

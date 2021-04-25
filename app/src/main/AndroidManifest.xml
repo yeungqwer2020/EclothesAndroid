@@ -4,6 +4,9 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
+
 
     <application
         android:allowBackup="true"
@@ -39,6 +42,9 @@
             android:name=".search.SearchActivity">
         </activity>
 
+        <activity android:name=".ShopinfoActivity" />
+        <activity android:name=".AddproductActivity" />
+        <activity android:name=".ShopmainActivity" />
         <activity android:name=".UserinfoActivity" />
         <activity android:name=".FakeFavorite">
         </activity>
@@ -52,6 +58,42 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity">
+        </activity>
+
+        ////
+        <activity android:name=".alan.ProductPage">
+
+        </activity>
+        <activity android:name=".alan.Answer">
+
+        </activity>
+        <activity android:name=".alan.Comment">
+
+
+        </activity>
+
+        <activity
+            android:name=".alan.Edit_Profile_Shop">
+
+
+        </activity>
+
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat" />
+
+
+
+        <activity
+            android:name=".alan.Edit_Profile_User">
+
+        </activity>
+
+        <activity android:name=".alan.temp" />
+        <activity
+            android:name=".alan.Favourite">
+
+
         </activity>
     </application>
 

@@ -1,13 +1,8 @@
 package com.example.eclothes.Models;
 
-import androidx.room.Embedded;
-import androidx.room.Entity;
-
-@Entity(tableName = "current_merchant_table")
 public class CurrentMerchant {
     private String token;
-    @Embedded
-    private Merchant merchant;
+    private com.example.eclothes.Models.Merchant merchant;
 
     public CurrentMerchant(String token, Merchant merchant) {
         this.token = token;

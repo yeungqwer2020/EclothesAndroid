@@ -20,6 +20,9 @@ public class Merchant {
     @SerializedName("description")
     private String desc;
 
+    public Merchant() {
+    }
+
     // login
     public Merchant(String username, String password) {
         this.username = username;

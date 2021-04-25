@@ -1,30 +1,50 @@
 package com.example.eclothes;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.eclothes.API.AuthorizationInterceptor;
 import com.example.eclothes.Models.Following;
 import com.example.eclothes.Models.Merchant;
+import com.example.eclothes.Models.Options;
 import com.example.eclothes.Models.Product;
 import com.example.eclothes.Models.User;
+import com.theartofdev.edmodo.cropper.CropImage;
 
 import org.json.JSONObject;
 
+import java.io.File;
+import java.io.IOException;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.Request;
+import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.http.Multipart;
 
 public class MainActivity extends AppCompatActivity {
     private TextView textView;
+    private ImageView imageView;
+    private Uri photoUri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,9 +52,174 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         textView = findViewById(R.id.textView);
+        imageView = findViewById(R.id.imageView);
+
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cropImage();
+            }
+        });
+
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                createProduct();
+            }
+        });
+    }
 
 
-        removeFollowing();
+    private void cropImage() {
+        CropImage.activity()
+                .start(MainActivity.this);
+    }
+
+    private void createProduct() {
+        AuthorizationInterceptor.setToken("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwODFhYjExMGUwM2E0NDdkZTFlYjBkMCIsImlhdCI6MTYxOTMzNzg1NiwiZXhwIjoxNjI3MTEzODU2fQ.s--aSihV6MWtzOfWjzFYSBZa_KtwyPuwgKSiz88aoao");
+
+
+        HashMap<String, Object> data = new HashMap<>();
+        data.put("name", "good clothes");
+        data.put("price", "200");
+        data.put("quantity", "50");
+        data.put("description", "this is good t-shirt");
+        data.put("merchant", "6084811b0e73fec2aa61ae7d");
+        data.put("category", "606b591ea307473eb5d3f7fd");
+        data.put("options", new Options(Arrays.asList("red", "green", "blue"), Arrays.asList("X", "XL")));
+
+        Call<Product> call = APIManager.getInstance().getAPIService().createProduct(data);
+        call.enqueue(new Callback<Product>() {
+            @Override
+            public void onResponse(Call<Product> call, Response<Product> response) {
+                if (response.isSuccessful() && response.code() == 200) {
+                    showMessage("Create Product Success");
+
+                    Product product = response.body();
+
+                    String content = "";
+                    content += product.getName() + "\n";
+                    content += product.get_id() + "\n";
+                    content += product.getDesc() + "\n";
+                    content += product.getPrice() + "\n";
+
+
+                    showMessage(content);
+                }
+                try {
+                    Log.d("Create Product", response.code() + response.errorBody().string() + "");
+                } catch (Exception e) {
+                    Log.d("Null message", e.getMessage().toString());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Product> call, Throwable t) {
+                Log.d("Create Product", "failure");
+            }
+        });
+
+    }
+
+    private void updateProduct() {
+        AuthorizationInterceptor.setToken("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwODFhYjExMGUwM2E0NDdkZTFlYjBkMCIsImlhdCI6MTYxOTMzNzg1NiwiZXhwIjoxNjI3MTEzODU2fQ.s--aSihV6MWtzOfWjzFYSBZa_KtwyPuwgKSiz88aoao");
+
+        if (photoUri != null) {
+            File photo = new File(photoUri.getPath());
+            Log.d("Photo", photo.getName());
+            RequestBody productPhotoBody = RequestBody.create(MediaType.parse("image/*"),
+                    photo);
+            List<MultipartBody.Part> productPhotosPart = new ArrayList<>();
+
+            productPhotosPart.add(MultipartBody.Part.createFormData("photos",
+                    photo.getName(),
+                    productPhotoBody));
+
+            Log.d("Photo List", productPhotosPart.get(0).toString());
+
+            Map<String, RequestBody> data = new HashMap<>();
+            data.put("name", createPartFromString("New "));
+            data.put("price", createPartFromString("1000"));
+            data.put("quantity", createPartFromString("100"));
+            data.put("description", createPartFromString("this is so so so new 2"));
+
+            List<RequestBody> color = Arrays.asList(createPartFromString("red"), createPartFromString("green"), createPartFromString("blue"));
+
+            Map<String, Options> options = new HashMap<>();
+            options.put("options", new Options(Arrays.asList("red", "green", "blue"), Arrays.asList("X", "XL")));
+
+            Call<Product> call = APIManager.getInstance().getAPIService().updateProduct("60853b82c33f632dfb29dac1", productPhotosPart, data, color, null);
+
+            call.enqueue(new Callback<Product>() {
+                @Override
+                public void onResponse(Call<Product> call, Response<Product> response) {
+                    if (response.isSuccessful() && response.code() == 200) {
+                        showMessage("Update Product Success");
+
+                        Product product = response.body();
+
+                        String content = "";
+                        content += product.getName() + "\n";
+                        content += product.getPhotos().get(0) + "\n";
+
+                        showMessage(content);
+                    }
+                    try {
+                        Log.d("Update Product Photo", response.code() + response.errorBody().string() + "");
+                    } catch (Exception e) {
+                        Log.d("Null message", e.getMessage().toString());
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<Product> call, Throwable t) {
+                    Log.d("Update Product Photo", "failure");
+                }
+            });
+
+//
+//            for (int index = 0; index <
+//                    surveyModel.getPicturesList()
+//                            .size(); index++) {
+//                Log.d(TAG,
+//                        "requestUploadSurvey: survey image " +
+//                                index +
+//                                "  " +
+//                                surveyModel.getPicturesList()
+//                                        .get(index)
+//                                        .getImagePath());
+//                File file = new File(surveyModel.getPicturesList()
+//                        .get(index)
+//                        .getImagePath());
+//                RequestBody surveyBody = RequestBody.create(MediaType.parse("image/*"),
+//                        file);
+//                surveyImagesParts[index] = MultipartBody.Part.createFormData("SurveyImage",
+//                        file.getName(),
+//                        surveyBody);
+//            }
+//            Call<Product> call = APIManager.getInstance().getAPIService().updateProduct(publisher,desc,label,imgBody);
+//            call.enqueue(new Callback<ResponseBody>() {
+//                @Override
+//                public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+//                    if(response.isSuccessful() && response.code() == 201){
+//                        Log.d(TAG_PostImg,response.message());
+//                        closeActivity();
+//                    }
+//                    post.setVisibility(View.VISIBLE);
+//                    mProgressBar.setVisibility(View.INVISIBLE);
+//                }
+//                @Override
+//                public void onFailure(Call<ResponseBody> call, Throwable t) {
+//                    post.setVisibility(View.VISIBLE);
+//                    mProgressBar.setVisibility(View.INVISIBLE);
+//                }
+//            });
+
+        }
+    }
+
+    private RequestBody createPartFromString(String data) {
+        return RequestBody.create(MediaType.parse("text/plain"), data);
     }
 
     private void removeFollowing() {
@@ -45,7 +230,7 @@ public class MainActivity extends AppCompatActivity {
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                if(response.isSuccessful() && response.code() == 200){
+                if (response.isSuccessful() && response.code() == 200) {
                     showMessage("Remove Follow Success");
 
                 }
@@ -74,7 +259,7 @@ public class MainActivity extends AppCompatActivity {
         call.enqueue(new Callback<Following>() {
             @Override
             public void onResponse(Call<Following> call, Response<Following> response) {
-                if(response.isSuccessful() && response.code() == 200){
+                if (response.isSuccessful() && response.code() == 200) {
                     showMessage("Follow Success");
 
                     Following following = response.body();
@@ -110,7 +295,7 @@ public class MainActivity extends AppCompatActivity {
         call2.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
-                if(response.isSuccessful() && response.code() == 200){
+                if (response.isSuccessful() && response.code() == 200) {
                     showMessage("Update Success");
 
                     User user = response.body();
@@ -216,5 +401,21 @@ public class MainActivity extends AppCompatActivity {
                 textView.setText(t.getMessage());
             }
         });
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
+            CropImage.ActivityResult result = CropImage.getActivityResult(data);
+            // Here set image preview
+
+            photoUri = result.getUri();
+//            post_image.setImageURI(imageUri);
+//            image_label.setText("");
+
+        }
     }
 }

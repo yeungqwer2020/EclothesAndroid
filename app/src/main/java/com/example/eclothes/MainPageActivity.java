@@ -16,6 +16,8 @@ import android.widget.TextView;
 
 import com.example.eclothes.API.AuthorizationInterceptor;
 import com.example.eclothes.API.UserStaticInformation;
+import com.example.eclothes.Models.Favorite;
+import com.example.eclothes.alan.Favourite;
 import com.example.eclothes.search.SearchActivity;
 import com.squareup.picasso.Picasso;
 
@@ -60,7 +62,7 @@ public class MainPageActivity extends AppCompatActivity {
 
     public void ClickFavorite(View view){
         //Redirect
-        redirectActivity(this, FakeFavorite.class);
+        redirectActivity(this, Favourite.class);
     }
 
     public void ClickShopNearBy(View view){

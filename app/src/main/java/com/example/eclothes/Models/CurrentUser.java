@@ -1,8 +1,5 @@
 package com.example.eclothes.Models;
 
-import androidx.room.Entity;
-
-@Entity(tableName = "current_user_table")
 public class CurrentUser {
     private String token;
     private User user;

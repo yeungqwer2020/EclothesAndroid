@@ -1,11 +1,10 @@
 package com.example.eclothes.Models;
 
-import androidx.room.Embedded;
+
 
 public class District {
     private String _id;
     private String district;
-    @Embedded
     private Region region;
 
     public District(String district, Region region) {

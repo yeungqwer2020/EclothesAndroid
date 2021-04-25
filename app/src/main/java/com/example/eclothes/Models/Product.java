@@ -17,6 +17,9 @@ public class Product {
     private String desc;
     private Options options;
 
+    public Product() {
+    }
+
     // Create Product with required fields
     public Product(String name, Merchant merchant, int price, Category category) {
         this.name = name;

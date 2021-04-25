@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".alan.Edit_Profile_Shop">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="visible"><![CDATA[>
+
+        ]]>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/edit_profile_shop"
+                android:layout_width="wrap_content"
+                android:layout_height="102dp"
+                android:layout_weight="1"
+                tools:srcCompat="@drawable/ic_launcher_foreground" />
+
+            <Button
+                android:id="@+id/edit_change_shop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_weight="1"
+                android:text="Change" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="100">
+
+            <TextView
+                android:id="@+id/edit_firstname_user"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="66.6"
+                android:text="Shop Name"
+                android:textSize="18dp"
+                android:visibility="visible" />
+
+            <EditText
+                android:id="@+id/editET_shopname_shop"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="33.3"
+                android:background="@null"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Apple Inc." />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="100">
+
+            <TextView
+                android:id="@+id/edit_lastname_user"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="66.6"
+                android:text="Address"
+                android:textSize="18dp"
+                android:visibility="visible" />
+
+            <EditText
+                android:id="@+id/editET_address_shop"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_weight="33.3"
+                android:background="@null"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="California" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="100">
+
+            <TextView
+                android:id="@+id/edit_phonenum_user"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="66.6"
+                android:text="Phone"
+                android:textSize="18dp"
+                android:visibility="visible" />
+
+            <EditText
+                android:id="@+id/editET_phonenum_shop"
+                android:layout_width="193dp"
+                android:layout_height="50dp"
+                android:layout_weight="33.3"
+                android:background="@null"
+                android:ems="10"
+                android:inputType="number"
+                android:text="21234567"
+                android:weightSum="100" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/edit_district_shop"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_weight="33.3"
+                android:text="District: "
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/district_change"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="66.6"
+                android:text="Change" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="100">
+
+            <TextView
+                android:id="@+id/edit_username_shop"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="66.6"
+                android:text="Username"
+                android:textSize="18dp"
+                android:visibility="visible" />
+
+            <EditText
+                android:id="@+id/editET_username_shop"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="33.3"
+                android:background="@null"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="shoptest001" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center|left"
+            android:text="Opening Hour:"
+            android:textSize="18dp" />
+
+        <EditText
+            android:id="@+id/editET_openinghr_shop"
+            android:layout_width="match_parent"
+            android:layout_height="175dp"
+            android:background="@null"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="Type your opening hour here:"
+            android:inputType="textMultiLine"
+            android:textSize="18dp" />
+
+        <Button
+            android:id="@+id/edit_save_shop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Save" />
+
+    </LinearLayout>
+
+    <RadioGroup
+        android:id="@+id/edit_district_radioGroup"
+        android:layout_width="379dp"
+        android:layout_height="608dp"
+        android:layout_weight="33.3"
+        android:background="#FFEB3B"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioButton
+            android:id="@+id/district1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:onClick="checkButton2"
+            android:text="Central and Western"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/district2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:onClick="checkButton2"
+            android:text="Eastern"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/district3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:onClick="checkButton2"
+            android:text="Islands"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/district4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:onClick="checkButton2"
+            android:text="Kowloon City"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/district5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:onClick="checkButton2"
+            android:text="Kwai Tsing"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/district6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:onClick="checkButton2"
+            android:text="Kwun Tong"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/district7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:onClick="checkButton2"
+            android:text="North"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/district8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:onClick="checkButton2"
+            android:text="Sai Kung"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/district9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:onClick="checkButton2"
+            android:text="Sha Tin"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/district10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:onClick="checkButton2"
+            android:text="Sham Shui Po"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/district11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:onClick="checkButton2"
+            android:text="South"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/district12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:onClick="checkButton2"
+            android:text="Tai Po"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/district13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:onClick="checkButton2"
+            android:text="Tsuen Wan"
+            android:textSize="18sp"/>
+
+        <RadioButton
+            android:id="@+id/district14"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:onClick="checkButton2"
+            android:text="Tuen Mun"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/district15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:onClick="checkButton2"
+            android:text="Wan Chai"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/district16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:onClick="checkButton2"
+            android:text="Wong Tai Sin"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/district17"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:onClick="checkButton2"
+            android:text="Yau Tsim Mong"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/district18"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:onClick="checkButton2"
+            android:text="Yeun Long"
+            android:textSize="18sp" />
+
+    </RadioGroup>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

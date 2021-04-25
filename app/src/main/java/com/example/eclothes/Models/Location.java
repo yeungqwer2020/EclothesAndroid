@@ -1,13 +1,12 @@
 package com.example.eclothes.Models;
 
-import androidx.room.Embedded;
+
 
 import java.util.List;
 
 public class Location {
     private List<Double> coordinates;
     private String address;
-    @Embedded
     private District district;
 
     public Location(List<Double> coordinates, String address, District district) {

@@ -19,12 +19,14 @@ import android.widget.Toast;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.eclothes.AddproductActivity;
 import com.example.eclothes.R;
 import com.example.eclothes.APIManager;
 import com.example.eclothes.API.AuthorizationInterceptor;
 import com.example.eclothes.Models.Following;
 import com.example.eclothes.Models.Merchant;
 
+import com.example.eclothes.ShopmainActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -43,8 +45,10 @@ public class MerchantRecyclerViewAdapter extends RecyclerView.Adapter<MerchantRe
     private String userId;
     private String[] followingIdList;
     private List<Following> followingList;
+    private Activity activity;
 
     MerchantRecyclerViewAdapter(Activity activity, List<Merchant> merchantList, String userId){
+        this.activity = activity;
         this.merchantList = merchantList;
         this.userId = userId;
         followingIdList = new String[getItemCount()];
@@ -138,9 +142,9 @@ public class MerchantRecyclerViewAdapter extends RecyclerView.Adapter<MerchantRe
             @Override
             public void onClick(View view) {
                 Log.i("shop_card.Listener", merchant.get_id());
-                Intent intent = new Intent(this, ShopmainActivity.class);
+                Intent intent = new Intent(activity, AddproductActivity.class);
                 intent.putExtra("merchantid", merchant.get_id());
-                startActivity(intent);
+                activity.startActivity(intent);
             }
         });
     }

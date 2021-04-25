@@ -1,5 +1,6 @@
 package com.example.eclothes.search;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -36,8 +37,10 @@ public class ProductRecyclerViewAdapter extends RecyclerView.Adapter<ProductRecy
     private String userId;
     private String[] favoriteIdList;
     private List<Favorite> favoriteList;
+    private Activity activity;
 
-    ProductRecyclerViewAdapter(List<Product> merchantList, String userId){
+    ProductRecyclerViewAdapter(Activity activity, List<Product> merchantList, String userId){
+        this.activity = activity;
         this.productList = merchantList;
         this.userId = userId;
         favoriteIdList = new String[getItemCount()];
@@ -98,9 +101,9 @@ public class ProductRecyclerViewAdapter extends RecyclerView.Adapter<ProductRecy
             @Override
             public void onClick(View view) {
                 Log.i("product_card.Listener", product.get_id());
-                Intent intent = new Intent(this, ProductpageActivity.class);
-                intent.putExtra("id", product.get_id());
-                startActivity(intent);
+                //Intent intent = new Intent(activity, ProductpageActivity.class);
+                //intent.putExtra("id", product.get_id());
+                //activity.startActivity(intent);
             }
         });
     }

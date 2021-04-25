@@ -11,8 +11,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class APIManager {
     private static APIManager apiManager;
-    private OkHttpClient clientNoAuth, clientAuth, client;
-    private Retrofit retrofitNoAuth, retrofitAuth, retrofit;
+    private OkHttpClient client;
+    private Retrofit retrofit;
     private APIService apiService;
 
     private APIManager() {

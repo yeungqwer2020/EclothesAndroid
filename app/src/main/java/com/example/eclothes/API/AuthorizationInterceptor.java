@@ -10,6 +10,7 @@ public class AuthorizationInterceptor implements Interceptor {
     private static String token;
     private static AuthorizationInterceptor authorizationInterceptor;
 
+
     public AuthorizationInterceptor() {
 
     }

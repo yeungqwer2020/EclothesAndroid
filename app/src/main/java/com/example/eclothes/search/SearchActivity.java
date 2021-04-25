@@ -27,6 +27,7 @@ import android.widget.Toast;
 import com.example.eclothes.API.UserStaticInformation;
 import com.example.eclothes.FakeFavorite;
 import com.example.eclothes.MainPageActivity;
+import com.example.eclothes.Models.Favorite;
 import com.example.eclothes.R;
 import com.example.eclothes.APIManager;
 import com.example.eclothes.API.AuthorizationInterceptor;
@@ -34,6 +35,7 @@ import com.example.eclothes.Models.Category;
 import com.example.eclothes.Models.Merchant;
 import com.example.eclothes.Models.Product;
 import com.example.eclothes.UserinfoActivity;
+import com.example.eclothes.alan.Favourite;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.textfield.TextInputLayout;
 import com.squareup.picasso.Picasso;
@@ -197,7 +199,7 @@ public class SearchActivity extends AppCompatActivity {
 
     public void ClickFavorite(View view){
         //Redirect
-        MainPageActivity.redirectActivity(this, FakeFavorite.class);
+        MainPageActivity.redirectActivity(this, Favourite.class);
     }
 
     //itself
@@ -266,7 +268,7 @@ public class SearchActivity extends AppCompatActivity {
             recyclerView.setLayoutManager(layoutManager);
             recyclerView.setAdapter(merchantRecyclerViewAdapter);
         } else if (tabIndex == 1) {
-            productRecyclerViewAdapter = new ProductRecyclerViewAdapter(dataList, UserStaticInformation.getUserId());
+            productRecyclerViewAdapter = new ProductRecyclerViewAdapter(SearchActivity.this, dataList, UserStaticInformation.getUserId());
             recyclerView.setLayoutManager(layoutManager);
             recyclerView.setAdapter(productRecyclerViewAdapter);
         }

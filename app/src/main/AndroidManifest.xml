@@ -15,15 +15,15 @@
         android:theme="@style/Theme.Eclothes">
         <activity android:name=".FakeFavorite"></activity>
         <activity android:name=".MainPageActivity">
+        </activity>
+        <activity android:name=".LoginRegisterActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginRegisterActivity" />
         <activity android:name=".MainActivity">
-
         </activity>
     </application>
 

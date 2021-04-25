@@ -39,6 +39,8 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static com.example.eclothes.MainPageActivity.redirectActivity;
+
 public class LoginRegisterActivity extends AppCompatActivity {
 
     private TextInputLayout menuRoleLayout, menuGenderLayout;
@@ -348,7 +350,7 @@ public class LoginRegisterActivity extends AppCompatActivity {
                         content += currentMerchant.getMerchant().getUsername() + "\n";
 
                         showMessage(content);
-//                        restartActivity();
+                        restartActivity();
                     }
                     Log.d("register", response.code() + "");
                     Log.d("register", response.errorBody() + "");
@@ -429,6 +431,7 @@ public class LoginRegisterActivity extends AppCompatActivity {
                         showMessage(content);
 
                         update();
+                        promoteToMainPage();
 
 
                     }
@@ -465,6 +468,8 @@ public class LoginRegisterActivity extends AppCompatActivity {
                         content += currentMerchant.getMerchant().getUsername() + "\n";
 
                         showMessage(content);
+                        //intent to MainPage
+                        promoteToMainPage();
                     }
 
                 }
@@ -476,6 +481,10 @@ public class LoginRegisterActivity extends AppCompatActivity {
             });
         }
 
+    }
+
+    private void promoteToMainPage(){
+        MainPageActivity.redirectActivity(this, MainPageActivity.class);
     }
 
     private void hideAllFields() {

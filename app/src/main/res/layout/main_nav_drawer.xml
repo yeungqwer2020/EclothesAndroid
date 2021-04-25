@@ -28,6 +28,7 @@
         android:background="@color/black" />
 
     <LinearLayout
+        android:id="@+id/menu_recommendation_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -52,6 +53,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/menu_favorite_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -76,6 +78,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/menu_shopNearBy_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -100,6 +103,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/menu_contactUs_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -124,6 +128,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/menu_setting_user_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -149,6 +154,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/menu_manageProduct_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -175,6 +181,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/menu_setting_merchant_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -200,6 +207,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/menu_setting_admin_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"

@@ -316,7 +316,7 @@ public class LoginRegisterActivity extends AppCompatActivity {
                         content += currentUser.getUser().getUsername() + "\n";
 
                         showMessage(content);
-//                        restartActivity();
+                        restartActivity();
                     }
                     Log.d("register", response.code() + "");
                 }
@@ -427,7 +427,7 @@ public class LoginRegisterActivity extends AppCompatActivity {
                         content += currentUser.getUser().getUsername() + "\n";
 
                         AuthorizationInterceptor.setToken(currentUser.getToken());
-
+                        AuthorizationInterceptor.setRole("User");
                         showMessage(content);
 
                         update();
@@ -469,6 +469,8 @@ public class LoginRegisterActivity extends AppCompatActivity {
 
                         showMessage(content);
                         //intent to MainPage
+                        AuthorizationInterceptor.setToken(currentMerchant.getToken());
+                        AuthorizationInterceptor.setRole("Merchant");
                         promoteToMainPage();
                     }
 

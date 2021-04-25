@@ -10,6 +10,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.LinearLayout;
+
+import com.example.eclothes.API.AuthorizationInterceptor;
 
 public class MainPageActivity extends AppCompatActivity {
 
@@ -23,6 +26,8 @@ public class MainPageActivity extends AppCompatActivity {
 
         //Assign variable
         drawerLayout = findViewById(R.id.drawer_layout);
+        AuthorizationInterceptor.setRole("Merchant");
+        updateMenuByrole(AuthorizationInterceptor.getRole());
     }
 
     public void ClickMenu(View view){
@@ -104,6 +109,55 @@ public class MainPageActivity extends AppCompatActivity {
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         //start activity
         activity.startActivity(intent);
+    }
+
+    public void updateMenuByrole(String role){
+        //user
+        LinearLayout llRecommendation = findViewById(R.id.menu_recommendation_layout);
+        LinearLayout llFavorite = findViewById(R.id.menu_favorite_layout);
+        LinearLayout llShopNearBy = findViewById(R.id.menu_shopNearBy_layout);
+        LinearLayout llContactUs = findViewById(R.id.menu_contactUs_layout);
+        LinearLayout llSettingUser = findViewById(R.id.menu_setting_user_layout);
+        //merchant
+        LinearLayout llManageProduct = findViewById(R.id.menu_manageProduct_layout);
+        LinearLayout llSettingMerchant = findViewById(R.id.menu_setting_merchant_layout);
+        //admin
+        LinearLayout llSettingAdmin = findViewById(R.id.menu_setting_admin_layout);
+        if(role == "User"){
+            llRecommendation.setVisibility(View.VISIBLE);
+            llFavorite.setVisibility(View.VISIBLE);
+            llShopNearBy.setVisibility(View.VISIBLE);
+            llContactUs.setVisibility(View.VISIBLE);
+            llSettingUser.setVisibility(View.VISIBLE);
+
+            llManageProduct.setVisibility(View.GONE);
+            llSettingMerchant.setVisibility(View.GONE);
+
+            llSettingAdmin.setVisibility(View.GONE);
+
+        }else if(role == "Merchant"){
+            llRecommendation.setVisibility(View.GONE);
+            llFavorite.setVisibility(View.GONE);
+            llShopNearBy.setVisibility(View.GONE);
+            llContactUs.setVisibility(View.GONE);
+            llSettingUser.setVisibility(View.GONE);
+
+            llManageProduct.setVisibility(View.VISIBLE);
+            llSettingMerchant.setVisibility(View.VISIBLE);
+
+            llSettingAdmin.setVisibility(View.GONE);
+        }else if(role == "Admin"){
+            llRecommendation.setVisibility(View.GONE);
+            llFavorite.setVisibility(View.GONE);
+            llShopNearBy.setVisibility(View.GONE);
+            llContactUs.setVisibility(View.GONE);
+            llSettingUser.setVisibility(View.GONE);
+
+            llManageProduct.setVisibility(View.GONE);
+            llSettingMerchant.setVisibility(View.GONE);
+
+            llSettingAdmin.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override

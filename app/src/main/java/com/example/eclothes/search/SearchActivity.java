@@ -20,9 +20,11 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.GridLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.eclothes.API.UserStaticInformation;
 import com.example.eclothes.FakeFavorite;
 import com.example.eclothes.MainPageActivity;
 import com.example.eclothes.R;
@@ -33,6 +35,7 @@ import com.example.eclothes.Models.Merchant;
 import com.example.eclothes.Models.Product;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.textfield.TextInputLayout;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONObject;
 
@@ -56,6 +59,8 @@ public class SearchActivity extends AppCompatActivity {
     List<Product> productList;
 
     DrawerLayout drawerLayout;
+    ImageView userImage;
+    TextView userName;
 
     RecyclerView recyclerView;
     MerchantRecyclerViewAdapter merchantRecyclerViewAdapter;
@@ -71,6 +76,11 @@ public class SearchActivity extends AppCompatActivity {
         setContentView(R.layout.activity_search);
 
         drawerLayout = findViewById(R.id.drawer_layout);
+        userImage = findViewById(R.id.userImage);
+        userName = findViewById(R.id.userName);
+
+        updateUserInformation();
+
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
         }
@@ -159,7 +169,7 @@ public class SearchActivity extends AppCompatActivity {
 
         recyclerView = (RecyclerView)findViewById(R.id.searchRecyclerView);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-        merchantRecyclerViewAdapter = new MerchantRecyclerViewAdapter(SearchActivity.this, merchantList, "60703a98e334f646971a1dc5"); //userId hard code
+        merchantRecyclerViewAdapter = new MerchantRecyclerViewAdapter(SearchActivity.this, merchantList, UserStaticInformation.getUserId());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(merchantRecyclerViewAdapter);
 
@@ -205,6 +215,11 @@ public class SearchActivity extends AppCompatActivity {
         MainPageActivity.closeDrawer(drawerLayout);
     }
 
+    public void updateUserInformation(){
+        userName.setText(UserStaticInformation.getUserName());
+        Picasso.get().load(UserStaticInformation.getUserImageUrl()).error(R.mipmap.ic_mobile_shopping_clothes_500_gray).into(userImage);
+    }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -245,11 +260,11 @@ public class SearchActivity extends AppCompatActivity {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
 
         if (tabIndex == 0) {
-            merchantRecyclerViewAdapter = new MerchantRecyclerViewAdapter(SearchActivity.this, dataList, "60703a98e334f646971a1dc5"); //userId hard code
+            merchantRecyclerViewAdapter = new MerchantRecyclerViewAdapter(SearchActivity.this, dataList, UserStaticInformation.getUserId());
             recyclerView.setLayoutManager(layoutManager);
             recyclerView.setAdapter(merchantRecyclerViewAdapter);
         } else if (tabIndex == 1) {
-            productRecyclerViewAdapter = new ProductRecyclerViewAdapter(dataList, "60703a98e334f646971a1dc5"); //userId hard code
+            productRecyclerViewAdapter = new ProductRecyclerViewAdapter(dataList, UserStaticInformation.getUserId());
             recyclerView.setLayoutManager(layoutManager);
             recyclerView.setAdapter(productRecyclerViewAdapter);
         }

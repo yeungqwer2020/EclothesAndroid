@@ -10,16 +10,21 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.example.eclothes.API.AuthorizationInterceptor;
 import com.example.eclothes.API.UserStaticInformation;
 import com.example.eclothes.search.SearchActivity;
+import com.squareup.picasso.Picasso;
 
 public class MainPageActivity extends AppCompatActivity {
 
     //Initialize variables
     DrawerLayout drawerLayout;
+    ImageView userImage;
+    TextView userName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +33,10 @@ public class MainPageActivity extends AppCompatActivity {
 
         //Assign variable
         drawerLayout = findViewById(R.id.drawer_layout);
+        userImage = findViewById(R.id.userImage);
+        userName = findViewById(R.id.userName);
+
+        updateUserInformation();
         //AuthorizationInterceptor.setRole("Merchant");
         updateMenuByrole(UserStaticInformation.getRole());
     }
@@ -112,6 +121,11 @@ public class MainPageActivity extends AppCompatActivity {
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         //start activity
         activity.startActivity(intent);
+    }
+
+    public void updateUserInformation(){
+        userName.setText(UserStaticInformation.getUserName());
+        Picasso.get().load(UserStaticInformation.getUserImageUrl()).error(R.mipmap.ic_mobile_shopping_clothes_500_gray).into(userImage);
     }
 
     public void updateMenuByrole(String role){

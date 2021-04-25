@@ -176,8 +176,6 @@ public class MerchantRecyclerViewAdapter extends RecyclerView.Adapter<MerchantRe
     }
 
     private void addFollowing(String merchantId) {
-        AuthorizationInterceptor.setToken("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwNzAzYTk4ZTMzNGY2NDY5NzFhMWRjNSIsImlhdCI6MTYxOTMwMDIzMSwiZXhwIjoxNjI3MDc2MjMxfQ.gooqnVKv_nHUXtrImlIQ8ZzFP5dJ61yhamtXxBxfaow");
-
         HashMap<String, String> map = new HashMap<>();
         map.put("merchant", merchantId);
 
@@ -204,8 +202,6 @@ public class MerchantRecyclerViewAdapter extends RecyclerView.Adapter<MerchantRe
     }
 
     private void removeFollowing(String followingId) {
-        AuthorizationInterceptor.setToken("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwNzAzYTk4ZTMzNGY2NDY5NzFhMWRjNSIsImlhdCI6MTYxOTMwMDIzMSwiZXhwIjoxNjI3MDc2MjMxfQ.gooqnVKv_nHUXtrImlIQ8ZzFP5dJ61yhamtXxBxfaow");
-
         Call<ResponseBody> call = APIManager.getInstance().getAPIService().removeFollowing(followingId);
 
         call.enqueue(new Callback<ResponseBody>() {

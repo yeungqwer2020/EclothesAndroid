@@ -6,12 +6,19 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
+import com.example.eclothes.API.UserStaticInformation;
 import com.example.eclothes.search.SearchActivity;
+import com.squareup.picasso.Picasso;
 
 public class FakeFavorite extends AppCompatActivity {
 
     DrawerLayout drawerLayout;
+    ImageView userImage;
+    TextView userName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +26,10 @@ public class FakeFavorite extends AppCompatActivity {
         setContentView(R.layout.activity_fake_favorite);
 
         drawerLayout = findViewById(R.id.drawer_layout);
+        userImage = findViewById(R.id.userImage);
+        userName = findViewById(R.id.userName);
+
+        updateUserInformation();
     }
 
     public void ClickMenu(View view){
@@ -57,5 +68,10 @@ public class FakeFavorite extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         MainPageActivity.closeDrawer(drawerLayout);
+    }
+
+    public void updateUserInformation(){
+        userName.setText(UserStaticInformation.getUserName());
+        Picasso.get().load(UserStaticInformation.getUserImageUrl()).error(R.mipmap.ic_mobile_shopping_clothes_500_gray).into(userImage);
     }
 }

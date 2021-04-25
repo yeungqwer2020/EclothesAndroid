@@ -129,8 +129,6 @@ public class ProductRecyclerViewAdapter extends RecyclerView.Adapter<ProductRecy
     }
 
     private void createFavorite(String productId) {
-        AuthorizationInterceptor.setToken("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwNzAzYTk4ZTMzNGY2NDY5NzFhMWRjNSIsImlhdCI6MTYxOTMwMDIzMSwiZXhwIjoxNjI3MDc2MjMxfQ.gooqnVKv_nHUXtrImlIQ8ZzFP5dJ61yhamtXxBxfaow");
-
         HashMap<String, String> map = new HashMap<>();
         map.put("product", productId);
 
@@ -155,8 +153,6 @@ public class ProductRecyclerViewAdapter extends RecyclerView.Adapter<ProductRecy
     }
 
     private void removeFavorite(String favoriteId) {
-        AuthorizationInterceptor.setToken("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwNzAzYTk4ZTMzNGY2NDY5NzFhMWRjNSIsImlhdCI6MTYxOTMwMDIzMSwiZXhwIjoxNjI3MDc2MjMxfQ.gooqnVKv_nHUXtrImlIQ8ZzFP5dJ61yhamtXxBxfaow");
-
         Call<ResponseBody> call = APIManager.getInstance().getAPIService().removeFavorite(favoriteId);
 
         call.enqueue(new Callback<ResponseBody>() {

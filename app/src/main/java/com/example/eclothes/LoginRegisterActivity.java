@@ -431,7 +431,9 @@ public class LoginRegisterActivity extends AppCompatActivity {
                         showMessage(content);
 
                         UserStaticInformation.setUserId(currentUser.getUser().get_id());
+                        UserStaticInformation.setUserName(currentUser.getUser().getUsername());
                         UserStaticInformation.setRole("User");
+                        UserStaticInformation.setUserImageUrl(currentUser.getUser().getPhoto());
 
                         update();
                         promoteToMainPage();
@@ -476,7 +478,9 @@ public class LoginRegisterActivity extends AppCompatActivity {
                         promoteToMainPage();
 
                         UserStaticInformation.setUserId(currentMerchant.getMerchant().get_id());
+                        UserStaticInformation.setUserName(currentMerchant.getMerchant().getUsername());
                         UserStaticInformation.setRole("Merchant");
+                        UserStaticInformation.setUserImageUrl(currentMerchant.getMerchant().getPhoto());
                     }
 
                 }

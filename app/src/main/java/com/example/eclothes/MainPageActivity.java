@@ -24,7 +24,7 @@ public class MainPageActivity extends AppCompatActivity {
     //Initialize variables
     DrawerLayout drawerLayout;
     ImageView userImage;
-    TextView userName;
+    TextView userName, title_mainPage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +35,8 @@ public class MainPageActivity extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawer_layout);
         userImage = findViewById(R.id.userImage);
         userName = findViewById(R.id.userName);
+        title_mainPage = findViewById(R.id.title_mainPage);
+        title_mainPage.setText("Recommendation");
 
         updateUserInformation();
         //AuthorizationInterceptor.setRole("Merchant");
@@ -47,8 +49,8 @@ public class MainPageActivity extends AppCompatActivity {
     }
 
     public void ClickUserIcon(View view){
-        //Close drawer
-        closeDrawer(drawerLayout);
+        //Redirect
+        redirectActivity(this, UserinfoActivity.class);
     }
 
     //meun list

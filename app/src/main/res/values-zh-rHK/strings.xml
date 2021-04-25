@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Eclothes</string>
+    <string name="app_name">Clothes Hunter</string>
     <string name="next_button_text">下一步</string>
     <string name="back_button_text">上一步</string>
     <string name="login_button_text">登入</string>

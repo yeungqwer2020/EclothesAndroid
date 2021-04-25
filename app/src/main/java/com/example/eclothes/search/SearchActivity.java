@@ -33,6 +33,7 @@ import com.example.eclothes.API.AuthorizationInterceptor;
 import com.example.eclothes.Models.Category;
 import com.example.eclothes.Models.Merchant;
 import com.example.eclothes.Models.Product;
+import com.example.eclothes.UserinfoActivity;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.textfield.TextInputLayout;
 import com.squareup.picasso.Picasso;
@@ -185,7 +186,8 @@ public class SearchActivity extends AppCompatActivity {
     }
 
     public void ClickUserIcon(View view){
-        MainPageActivity.closeDrawer(drawerLayout);
+        //Redirect
+        MainPageActivity.redirectActivity(this, UserinfoActivity.class);
     }
 
     public void ClickRecommendation(View view){

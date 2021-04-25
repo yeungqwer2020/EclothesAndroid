@@ -39,6 +39,7 @@
             android:name=".search.SearchActivity">
         </activity>
 
+        <activity android:name=".UserinfoActivity" />
         <activity android:name=".FakeFavorite">
         </activity>
         <activity android:name=".MainPageActivity">

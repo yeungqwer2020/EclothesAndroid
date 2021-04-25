@@ -18,7 +18,7 @@ public class FakeFavorite extends AppCompatActivity {
 
     DrawerLayout drawerLayout;
     ImageView userImage;
-    TextView userName;
+    TextView userName, title_mainPage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +28,8 @@ public class FakeFavorite extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawer_layout);
         userImage = findViewById(R.id.userImage);
         userName = findViewById(R.id.userName);
+        title_mainPage = findViewById(R.id.title_mainPage);
+        title_mainPage.setText("Favorite");
 
         updateUserInformation();
     }
@@ -39,7 +41,8 @@ public class FakeFavorite extends AppCompatActivity {
     }
 
     public void ClickUserIcon(View view){
-        MainPageActivity.closeDrawer(drawerLayout);
+        //Redirect
+        MainPageActivity.redirectActivity(this, UserinfoActivity.class);
     }
 
     public void ClickRecommendation(View view){

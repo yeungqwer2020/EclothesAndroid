@@ -64,7 +64,12 @@ public class ProductRecyclerViewAdapter extends RecyclerView.Adapter<ProductRecy
         holder.product_description.setText(product.getDesc());
         holder.product_price.setText(product.getPrice() + "");
         Picasso.get().load("http://ec2-54-175-85-90.compute-1.amazonaws.com/photo/merchants/" + product.getMerchant().get_id() + "/" + product.getMerchant().getPhoto()).error(R.mipmap.ic_mobile_shopping_clothes_500_gray).into(holder.merchant_shop_image);
-        Picasso.get().load("http://ec2-54-175-85-90.compute-1.amazonaws.com/photo/merchants/" + product.getMerchant().get_id() + "/products/" + product.get_id() + "/" + product.getPhotos().get(0)).error(R.mipmap.ic_mobile_shopping_clothes_500_gray).into(holder.product_image);
+        if(product.getPhotos().size() > 0) {
+            Picasso.get().load("http://ec2-54-175-85-90.compute-1.amazonaws.com/photo/merchants/" + product.getMerchant().get_id() + "/products/" + product.get_id() + "/" + product.getPhotos().get(0)).error(R.mipmap.ic_mobile_shopping_clothes_500_gray).into(holder.product_image);
+        } else {
+            Picasso.get().load("http://ec2-54-175-85-90.compute-1.amazonaws.com/photo/merchants/" + product.getMerchant().get_id() + "/products/" + product.get_id() + "/" + product.getPhotos()).error(R.mipmap.ic_mobile_shopping_clothes_500_gray).into(holder.product_image);
+        }
+
         if (holder.product_favourite.isChecked() != (favoriteIdList[position] != null)) {
             holder.product_favourite.setChecked(favoriteIdList[position] != null);
         }

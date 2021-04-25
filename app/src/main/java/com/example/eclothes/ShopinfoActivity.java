@@ -191,7 +191,7 @@ public class ShopinfoActivity extends AppCompatActivity {
                         phonenumber,
                         openinghours,
                         shopemail));
-                if (shopphoto.compareTo("merchantAvator.png")==0||shopphoto.compareTo("shop-2-1.jpg")==0)
+                if (shopphoto.compareTo("fail to access") == 0)
                     Picasso.get().load(R.drawable.profilepic).into(image);
                 else
                     Picasso.get().load(Shopinfodetails.get(0).image).into(image);

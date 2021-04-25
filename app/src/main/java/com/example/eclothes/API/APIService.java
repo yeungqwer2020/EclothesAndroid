@@ -66,6 +66,12 @@ public interface APIService {
     @PATCH("api/v1/users/me")
     Call<User> updateMe(@Body User user);
 
+    @Multipart
+    @PATCH("api/v1/users/me")
+    Call<User> updateMeImage(@Path("id") String userId,
+                        @Part List<MultipartBody.Part> photos,
+                        @PartMap Map<String, RequestBody> data);
+
 
     // Merchant
     @GET("api/v1/merchants")
@@ -88,7 +94,7 @@ public interface APIService {
 
     @Multipart
     @PATCH("api/v1/merchants/me")
-    Call<Merchant> updateMe(@Path("id") String merchantId,
+    Call<Merchant> updateMePhoto(@Path("id") String merchantId,
                                 @Part List<MultipartBody.Part> photos,
                                 @PartMap Map<String, RequestBody> data);
 
@@ -184,15 +190,15 @@ public interface APIService {
 
 
     // Following
-    @GET("users/{id}/followings")
+    @GET("api/v1/users/{id}/followings")
     @Headers("No-Authorization: true")
     Call<List<Following>> getFollowings(@Path("id") String userId);
 
-    @GET("comments")
+    @GET("api/v1/comments")
     @Headers("No-Authorization: true")
     Call<List<Following>> getFollowings();
 
-    @GET("followings/{id}")
+    @GET("api/v1/followings/{id}")
     @Headers("No-Authorization: true")
     Call<Following> getFollowing(@Path("id") String commentId);
 

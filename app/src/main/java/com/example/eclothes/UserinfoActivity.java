@@ -233,7 +233,7 @@ public class UserinfoActivity extends AppCompatActivity {
                         phonenumber,
                         gender,
                         useremail));
-                if (userphoto.compareTo("userAvator.png")==0)
+                if (userphoto.compareTo("fail to access") == 0)
                     Picasso.get().load(R.drawable.profilepic).into(image);
                 else
                     Picasso.get().load(Userinfodetails.get(0).image).into(image);

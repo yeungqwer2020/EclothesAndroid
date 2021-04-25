@@ -98,7 +98,12 @@ public class Favourite extends AppCompatActivity {
                 for (Favorite favorite : favorites) {
                     // given string how to assign it into an image view named imageviewP
                     // /photo/merchants/{{merchantId}}/products/{{productId}}/{{filename.jpeg}}
-                    String url = SERVER_URL + "/photo/merchants/" + favorite.getProduct().getMerchant().get_id() + "/products/" + favorite.getProduct().get_id() + "/" + favorite.getProduct().getPhotos().get(0);
+
+                    String url;
+                    if(favorite.getProduct().getPhotos().size() > 0)
+                        url= SERVER_URL + "/photo/merchants/" + favorite.getProduct().getMerchant().get_id() + "/products/" + favorite.getProduct().get_id() + "/" + favorite.getProduct().getPhotos().get(0);
+                    else
+                        url= SERVER_URL + "/photo/merchants/" + favorite.getProduct().getMerchant().get_id() + "/products/" + favorite.getProduct().get_id() + "/" + favorite.getProduct().getPhotos();
                     Log.d("PhotoFav", url);
 
                     FavouriteProduct fp = new FavouriteProduct(url, favorite.getProduct().getName(), favorite.getProduct().getPrice());

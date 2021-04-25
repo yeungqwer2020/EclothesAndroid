@@ -67,7 +67,12 @@ public class Comment extends AppCompatActivity {
                 }
 
                 getProduct = response.body();
-                String url = SERVER_URL + "/photo/merchants/" + getProduct.getMerchant().get_id() + "/products/" + getProduct.get_id() + "/" + getProduct.getPhotos().get(0);
+                String url;
+                if(getProduct.getPhotos().size() > 0) {
+                    url = SERVER_URL + "/photo/merchants/" + getProduct.getMerchant().get_id() + "/products/" + getProduct.get_id() + "/" + getProduct.getPhotos().get(0);
+                } else {
+                    url = SERVER_URL + "/photo/merchants/" + getProduct.getMerchant().get_id() + "/products/" + getProduct.get_id() + "/" + getProduct.getPhotos();
+                }
                 Picasso.get().load(url).into(productPic);
                 title.setText(getProduct.getName());
                 price.setText("$" + getProduct.getPrice());

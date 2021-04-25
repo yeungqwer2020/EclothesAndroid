@@ -72,8 +72,10 @@ public class ProductPage extends AppCompatActivity {
                 //imageUrls = new String[product.getPhotos().size()];
                 //for (int i = 0; i < product.getPhotos().size(); i++)
                 //    imageUrls[i] = SERVER_URL + "/photo/merchants/" + product.getMerchant().get_id() + "/products/" + product.get_id() + "/" + product.getPhotos().get(i);
-                imageUrls[0] = SERVER_URL + "/photo/merchants/" + product.getMerchant().get_id() + "/products/" + product.get_id() + "/" + product.getPhotos().get(0);
-                Log.d("Product Photo", imageUrls[0]);
+                if(product.getPhotos() != null && product.getPhotos().size() > 0) {
+                    imageUrls[0] = SERVER_URL + "/photo/merchants/" + product.getMerchant().get_id() + "/products/" + product.get_id() + "/" + product.getPhotos().get(0);
+                }
+                //Log.d("Product Photo", imageUrls[0]);
                 viewPager.setAdapter(adapter);
 
                 title.setText(product.getName());

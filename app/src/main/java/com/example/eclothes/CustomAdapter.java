@@ -75,7 +75,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         product_name.setText(entityNewsArrayList.get(position).productname+"");
         product_price.setText("$ "+entityNewsArrayList.get(position).productprice+"");
         product_description.setText(entityNewsArrayList.get(position).productdescription+"");
-        if (url.compareTo("product.png")==0||url.compareTo("shop-2-1.jpg")==0)
+
+        if (url.compareTo("[]")==0)
             Picasso.get().load(R.drawable.clothes).into(product_image);
         else
             Picasso.get().load(url).into(product_image);

@@ -71,6 +71,7 @@ public class ShopmainActivity extends AppCompatActivity {
     String merchantid;
     String usermerchant;
     String shopphoto;
+    String photooo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -291,6 +292,7 @@ public class ShopmainActivity extends AppCompatActivity {
         //String merchantid2 = merchantid;
         String merchantid2 = "60703e1aaa1c68484a568778";
         String url = "http://ec2-54-175-85-90.compute-1.amazonaws.com/api/v1/merchants/" + merchantid2 + "/products?sort=createdAt";
+
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
@@ -306,21 +308,28 @@ public class ShopmainActivity extends AppCompatActivity {
                         String productname = jsonObject.getString("name"); //productname
                         String photo = jsonObject.getString("photos");
                         String productid = jsonObject.getString("_id");
-                        char[] firstphoto = new char[2000];
-                        int count=0;
+                        if (photo.compareTo("[]")!=0) {
+                            photooo = "";
+                            char[] firstphoto = new char[2000];
+                            int count = 0;
 
-                        for (int j = 2; j < 2000; j++) {
-                            if (photo.charAt(j) != '"') {
-                                firstphoto[j - 2] = photo.charAt(j);
-                                count++;
-                            } else
-                                break;
+                            for (int j = 2; j < 2000; j++) {
+                                if (photo.charAt(j) != '"') {
+                                    firstphoto[j - 2] = photo.charAt(j);
+                                    count++;
+                                } else
+                                    break;
+                            }
+                            char[] photooo2 = new char[count];
+                            for (int k = 0; k < count; k++) {
+                                photooo2[k] = firstphoto[k];
+                            }
+                            photooo = new String(photooo2);
                         }
-                        char[] photooo2 = new char[count];
-                        for (int k = 0; k < count; k++){
-                            photooo2[k] = firstphoto[k];
-                        }
-                        String photooo = new String(photooo2); //photooo is first photo string
+                        else
+                            photooo = "[]";
+
+                        //photooo is first photo string
                         String price = jsonObject.getString("price"); //price
                         String description = jsonObject.getString("description");
 
@@ -331,7 +340,7 @@ public class ShopmainActivity extends AppCompatActivity {
                         //photos.add(photooo);
                         //mBtnNew.append(photooo + " ");
                         //Toast.makeText(ShopmainActivity.this,"Response :" + productid, Toast.LENGTH_LONG).show();
-                        if (photooo.compareTo("photoshop-2-1.jpg")==0||photooo.compareTo("product.png")==0)
+                        if (photooo.compareTo("[]")==0)
                             entityNewsArrayList.add(new EntityNews(photooo, productname, price, description, productid));
                         else
                             entityNewsArrayList.add(new EntityNews(realphotoo, productname, price, description, productid));
@@ -408,7 +417,7 @@ public class ShopmainActivity extends AppCompatActivity {
 
         //Shopinfodetails.add(new shopinfo("https://i.ibb.co/x88xTKP/image.png", "Shop Shop", "user123", "Park Avenue Tower Causeway Bay, Wan Chai District, Hong Kong", "Wan Chai123", "24740777", "Mon-Fri: 00:00 - 23:00\nSat: 00:00 - 22:59\nSun: Close", "XXX@company.com"));
 
-        if (shopphoto.compareTo("merchantAvator.png")==0||shopphoto.compareTo("shop-2-1.jpg")==0)
+        if (shopphoto.compareTo("fail to access") == 0)
             Picasso.get().load(R.drawable.profilepic).into(image);
         else
             Picasso.get().load(Shopinfodetails.get(0).image).into(image);

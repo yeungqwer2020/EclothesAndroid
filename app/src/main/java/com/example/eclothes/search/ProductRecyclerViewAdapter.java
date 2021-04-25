@@ -1,5 +1,6 @@
 package com.example.eclothes.search;
 
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -92,6 +93,16 @@ public class ProductRecyclerViewAdapter extends RecyclerView.Adapter<ProductRecy
                  }
              }
         );
+
+        holder.product_card_view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.i("product_card.Listener", product.get_id());
+                Intent intent = new Intent(this, ProductpageActivity.class);
+                intent.putExtra("id", product.get_id());
+                startActivity(intent);
+            }
+        });
     }
 
     private void getFavorites(String userId) {
@@ -184,7 +195,7 @@ public class ProductRecyclerViewAdapter extends RecyclerView.Adapter<ProductRecy
                 product_style, product_price_type, product_price;
         private ImageView merchant_shop_image, product_image;
         private CheckBox product_favourite;
-        private CardView shop_card_view;
+        private CardView product_card_view;
         public ProductViewHolder(View view) {
             super(view);
             merchant_shop_name = (TextView) view.findViewById(R.id.merchant_shop_name);
@@ -196,7 +207,7 @@ public class ProductRecyclerViewAdapter extends RecyclerView.Adapter<ProductRecy
             merchant_shop_image = (ImageView) view.findViewById(R.id.merchant_shop_image);
             product_image = (ImageView) view.findViewById(R.id.product_image);
             product_favourite = (CheckBox) view.findViewById(R.id.product_favourite);
-            shop_card_view = (CardView) view.findViewById(R.id.shop_card_view);
+            product_card_view = (CardView) view.findViewById(R.id.product_card_view);
         }
     }
 }

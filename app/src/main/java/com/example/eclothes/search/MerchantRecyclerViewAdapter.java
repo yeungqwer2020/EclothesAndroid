@@ -1,6 +1,7 @@
 package com.example.eclothes.search;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Gravity;
@@ -136,7 +137,10 @@ public class MerchantRecyclerViewAdapter extends RecyclerView.Adapter<MerchantRe
         holder.shop_card_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.i("shop_card_view.Listener", merchant.get_id());
+                Log.i("shop_card.Listener", merchant.get_id());
+                Intent intent = new Intent(this, ShopmainActivity.class);
+                intent.putExtra("merchantid", merchant.get_id());
+                startActivity(intent);
             }
         });
     }

@@ -1,5 +1,6 @@
 package com.example.eclothes;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
@@ -19,6 +20,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.eclothes.API.UserStaticInformation;
 import com.example.eclothes.Models.Favorite;
+import com.example.eclothes.alan.Edit_Profile_User;
 import com.example.eclothes.alan.Favourite;
 import com.example.eclothes.search.SearchActivity;
 import com.squareup.picasso.Picasso;
@@ -98,8 +100,8 @@ public class UserinfoActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                //Intent intent = new Intent(UserinfoActivity.this, EditprofileActivity.class);
-                //startActivity(intent);
+                Intent intent = new Intent(UserinfoActivity.this, Edit_Profile_User.class);
+                startActivity(intent);
             }
         });
     }
@@ -114,10 +116,10 @@ public class UserinfoActivity extends AppCompatActivity {
         MainPageActivity.closeDrawer(drawerLayout);
     }
 
-    public void ClickRecommendation(View view){
+    /*public void ClickRecommendation(View view){
         //Recreate activity
         MainPageActivity.redirectActivity(this,MainPageActivity.class);
-    }
+    }*/
 
     //itself
     public void ClickFavorite(View view){

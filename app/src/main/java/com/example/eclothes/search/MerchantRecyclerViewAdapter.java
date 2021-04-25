@@ -142,7 +142,7 @@ public class MerchantRecyclerViewAdapter extends RecyclerView.Adapter<MerchantRe
             @Override
             public void onClick(View view) {
                 Log.i("shop_card.Listener", merchant.get_id());
-                Intent intent = new Intent(activity, AddproductActivity.class);
+                Intent intent = new Intent(activity, ShopmainActivity.class);
                 intent.putExtra("merchantid", merchant.get_id());
                 activity.startActivity(intent);
             }

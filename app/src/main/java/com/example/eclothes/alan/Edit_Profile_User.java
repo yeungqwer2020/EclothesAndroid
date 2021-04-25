@@ -2,6 +2,7 @@ package com.example.eclothes.alan;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -17,6 +18,7 @@ import com.example.eclothes.API.UserStaticInformation;
 import com.example.eclothes.APIManager;
 import com.example.eclothes.Models.User;
 import com.example.eclothes.R;
+import com.example.eclothes.UserinfoActivity;
 
 import java.util.Objects;
 
@@ -71,6 +73,9 @@ public class Edit_Profile_User extends AppCompatActivity {
                 public void onResponse(Call<User> call, Response<User> response) {
                     if(response.isSuccessful() && response.code() == 200){
                         //showMessage("Update Success");
+
+                        Intent intent = new Intent(Edit_Profile_User.this, UserinfoActivity.class);
+                        startActivity(intent);
 
 //                        User user = response.body();
 //

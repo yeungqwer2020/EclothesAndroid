@@ -191,10 +191,10 @@ public class Favourite extends AppCompatActivity {
         MainPageActivity.redirectActivity(this, UserinfoActivity.class);
     }
 
-    public void ClickRecommendation(View view){
+    /*public void ClickRecommendation(View view){
         //Recreate activity
         MainPageActivity.redirectActivity(this,MainPageActivity.class);
-    }
+    }*/
 
     //itself
     public void ClickFavorite(View view){

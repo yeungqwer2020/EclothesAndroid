@@ -21,6 +21,7 @@ import com.example.eclothes.API.AuthorizationInterceptor;
 import com.example.eclothes.Models.Favorite;
 import com.example.eclothes.Models.Following;
 import com.example.eclothes.Models.Product;
+import com.example.eclothes.alan.ProductPage;
 import com.squareup.picasso.Picasso;
 
 import java.util.HashMap;
@@ -101,9 +102,9 @@ public class ProductRecyclerViewAdapter extends RecyclerView.Adapter<ProductRecy
             @Override
             public void onClick(View view) {
                 Log.i("product_card.Listener", product.get_id());
-                //Intent intent = new Intent(activity, ProductpageActivity.class);
-                //intent.putExtra("id", product.get_id());
-                //activity.startActivity(intent);
+                Intent intent = new Intent(activity, ProductPage.class);
+                intent.putExtra("id", product.get_id());
+                activity.startActivity(intent);
             }
         });
     }

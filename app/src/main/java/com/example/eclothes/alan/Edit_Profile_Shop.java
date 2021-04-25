@@ -2,6 +2,7 @@ package com.example.eclothes.alan;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -24,6 +25,7 @@ import com.example.eclothes.Models.Product;
 import com.example.eclothes.Models.Region;
 import com.example.eclothes.Models.User;
 import com.example.eclothes.R;
+import com.example.eclothes.UserinfoActivity;
 
 import java.util.HashMap;
 import java.util.List;
@@ -140,6 +142,9 @@ public class Edit_Profile_Shop extends AppCompatActivity {
                 public void onResponse(Call<Merchant> call, Response<Merchant> response) {
                     if(response.isSuccessful() && response.code() == 200){
                         //showMessage("Update Success");
+
+                        Intent intent = new Intent(Edit_Profile_Shop.this, UserinfoActivity.class);
+                        startActivity(intent);
 
 //                        User user = response.body();
 //

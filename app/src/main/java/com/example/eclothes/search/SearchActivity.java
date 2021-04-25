@@ -192,10 +192,10 @@ public class SearchActivity extends AppCompatActivity {
         MainPageActivity.redirectActivity(this, UserinfoActivity.class);
     }
 
-    public void ClickRecommendation(View view){
+    /*public void ClickRecommendation(View view){
         //Recreate activity
         MainPageActivity.redirectActivity(this,MainPageActivity.class);
-    }
+    }*/
 
     public void ClickFavorite(View view){
         //Redirect

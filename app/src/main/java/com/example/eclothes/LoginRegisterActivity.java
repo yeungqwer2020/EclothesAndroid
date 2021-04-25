@@ -26,6 +26,7 @@ import com.example.eclothes.Models.CurrentUser;
 import com.example.eclothes.Models.Merchant;
 import com.example.eclothes.Models.Product;
 import com.example.eclothes.Models.User;
+import com.example.eclothes.search.SearchActivity;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.gson.Gson;
 
@@ -495,7 +496,7 @@ public class LoginRegisterActivity extends AppCompatActivity {
     }
 
     private void promoteToMainPage(){
-        MainPageActivity.redirectActivity(this, MainPageActivity.class);
+        MainPageActivity.redirectActivity(this, SearchActivity.class);
     }
 
     private void hideAllFields() {
@@ -597,7 +598,7 @@ public class LoginRegisterActivity extends AppCompatActivity {
     }
 
     private void showMessage(String message) {
-        Toast.makeText(LoginRegisterActivity.this, message, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(LoginRegisterActivity.this, message, Toast.LENGTH_SHORT).show();
     }
 
 }

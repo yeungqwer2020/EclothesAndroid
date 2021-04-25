@@ -1,7 +1,9 @@
 package com.example.eclothes.API;
 
+import com.example.eclothes.Models.Category;
 import com.example.eclothes.Models.CurrentMerchant;
 import com.example.eclothes.Models.CurrentUser;
+import com.example.eclothes.Models.District;
 import com.example.eclothes.Models.Favorite;
 import com.example.eclothes.Models.Following;
 import com.example.eclothes.Models.Merchant;
@@ -69,6 +71,13 @@ public interface APIService {
     @Headers("No-Authorization: true")
     Call<List<Merchant>> getMerchants(@Query("shopName[regex]") String keyword);
 
+    @GET("api/v1/merchants")
+    @Headers("No-Authorization: true")
+    Call<List<Merchant>> getMerchants(
+            @Query("shopName[regex]") String keyword,
+            @Query("location.district") String district_id
+    );
+
     @GET("api/v1/merchants/{id}")
     @Headers("No-Authorization: true")
     Call<Merchant> getMerchant(@Path("id") String merchantId);
@@ -134,30 +143,36 @@ public interface APIService {
 
 
     // Favorite
-    @GET("users/{id}/favorites")
+    @GET("api/v1/users/{id}/favorites")
     @Headers("No-Authorization: true")
     Call<List<Favorite>> getFavorites(@Path("id") String userId);
 
-    @GET("comments")
+    @GET("api/v1/favorites")
     @Headers("No-Authorization: true")
     Call<List<Favorite>> getFavorites();
 
-    @GET("favorites/{id}")
+    @GET("api/v1/favorites/{id}")
     @Headers("No-Authorization: true")
     Call<Favorite> getFavorite(@Path("id") String commentId);
+
+    @POST("api/v1/favorites")
+    Call<Favorite> createFavorite(@Body HashMap<String, String> map);
+
+    @DELETE("api/v1/favorites/{id}")
+    Call<ResponseBody> removeFavorite(@Path("id") String favoriteId);
 
 
 
     // Following
-    @GET("users/{id}/followings")
+    @GET("api/v1/users/{id}/followings")
     @Headers("No-Authorization: true")
     Call<List<Following>> getFollowings(@Path("id") String userId);
 
-    @GET("comments")
+    @GET("api/v1/followings")
     @Headers("No-Authorization: true")
     Call<List<Following>> getFollowings();
 
-    @GET("followings/{id}")
+    @GET("api/v1/followings/{id}")
     @Headers("No-Authorization: true")
     Call<Following> getFollowing(@Path("id") String commentId);
 
@@ -166,4 +181,18 @@ public interface APIService {
 
     @DELETE("api/v1/followings/{id}")
     Call<ResponseBody> removeFollowing(@Path("id") String followingId);
+
+
+
+    // Category
+    @GET("api/v1/categories")
+    @Headers("No-Authorization: true")
+    Call<List<Category>> getCategories();
+
+
+
+    // District
+    @GET("api/v1/districts")
+    @Headers("No-Authorization: true")
+    Call<List<District>> getDistricts();
 }

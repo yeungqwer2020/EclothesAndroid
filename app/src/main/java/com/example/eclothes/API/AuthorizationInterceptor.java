@@ -9,9 +9,6 @@ import okhttp3.Response;
 public class AuthorizationInterceptor implements Interceptor {
     private static String token;
     private static AuthorizationInterceptor authorizationInterceptor;
-    //new role
-    private static String role;
-
 
     public AuthorizationInterceptor() {
 
@@ -19,14 +16,6 @@ public class AuthorizationInterceptor implements Interceptor {
 
     public static void setToken(String t) {
         token = t;
-    }
-
-    public static String getRole() {
-        return role;
-    }
-
-    public static void setRole(String role) {
-        AuthorizationInterceptor.role = role;
     }
 
     @Override

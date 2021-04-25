@@ -20,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.eclothes.API.AuthorizationInterceptor;
+import com.example.eclothes.API.UserStaticInformation;
 import com.example.eclothes.Models.CurrentMerchant;
 import com.example.eclothes.Models.CurrentUser;
 import com.example.eclothes.Models.Merchant;
@@ -427,8 +428,10 @@ public class LoginRegisterActivity extends AppCompatActivity {
                         content += currentUser.getUser().getUsername() + "\n";
 
                         AuthorizationInterceptor.setToken(currentUser.getToken());
-                        AuthorizationInterceptor.setRole("User");
                         showMessage(content);
+
+                        UserStaticInformation.setUserId(currentUser.getUser().get_id());
+                        UserStaticInformation.setRole("User");
 
                         update();
                         promoteToMainPage();
@@ -470,8 +473,10 @@ public class LoginRegisterActivity extends AppCompatActivity {
                         showMessage(content);
                         //intent to MainPage
                         AuthorizationInterceptor.setToken(currentMerchant.getToken());
-                        AuthorizationInterceptor.setRole("Merchant");
                         promoteToMainPage();
+
+                        UserStaticInformation.setUserId(currentMerchant.getMerchant().get_id());
+                        UserStaticInformation.setRole("Merchant");
                     }
 
                 }

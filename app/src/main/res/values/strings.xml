@@ -25,6 +25,44 @@
         <item name="gender_menu_female" translatable="false">Female</item>
     </string-array>
 
+    <string name="search" translatable="false">Search</string>
+    <string name="user" translatable="false">User</string>
+    <string name="favorite" translatable="false">Favorite</string>
+    <string name="filter" translatable="false">Filters</string>
+    <string name="map" translatable="false">Map</string>
+    <string name="mapSearch" translatable="false">Map Search</string>
+    <string name="shops" translatable="false">Shops</string>
+    <string name="products" translatable="false">Products</string>
+    <string name="filterDismiss" translatable="false">Filter Dismiss</string>
+    <string name="keyword" translatable="false">Keyword</string>
+    <string name="region" translatable="false">Region</string>
+    <string name="district" translatable="false">District</string>
+    <string name="category" translatable="false">Category</string>
+    <string name="style" translatable="false">Style</string>
+    <string name="priceRange_label" translatable="false">Price Range: </string>
+    <string name="min" translatable="false">Min</string>
+    <string name="max" translatable="false">Max</string>
+    <string name="sortBy" translatable="false">Sort By</string>
+    <string name="title_activity_map_searching" translatable="false">Map</string>
+    <string name="district1" translatable="false">Islands</string>
+    <string name="district2" translatable="false">Kwai Tsing</string>
+    <string name="district3" translatable="false">North</string>
+    <string name="district4" translatable="false">Sai Kung</string>
+    <string name="district5" translatable="false">Sha Tin</string>
+    <string name="district6" translatable="false">Tai Po</string>
+    <string name="district7" translatable="false">Tsuen Wan</string>
+    <string name="district8" translatable="false">Tuen Mun</string>
+    <string name="district9" translatable="false">Yuen Long</string>
+    <string name="district10" translatable="false">Kowloon City</string>
+    <string name="district11" translatable="false">Kwun Tong</string>
+    <string name="district12" translatable="false">Sham Shui Po</string>
+    <string name="district13" translatable="false">Wong Tai Sin</string>
+    <string name="district14" translatable="false">Yau Tsim Mong</string>
+    <string name="district15" translatable="false">Central and Western</string>
+    <string name="district16" translatable="false">Eastern</string>
+    <string name="district17" translatable="false">Southern</string>
+    <string name="district18" translatable="false">Wan Chai</string>
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
@@ -44,7 +82,7 @@
     <string name="menu_recommendation">Recommendation</string>
     <string name="menu_favorite">Favorite</string>
     <string name="menu_username">temp_Username</string>
-    <string name="menu_shopnearby">Shop Near By</string>
+    <string name="menu_shopnearby">Search</string>
     <string name="menu_contactus">Contact Us</string>
     <string name="menu_setting">Settings</string>
     <string name="menu_manageproduct">Manage Product</string>

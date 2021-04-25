@@ -13,6 +13,8 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import com.example.eclothes.API.AuthorizationInterceptor;
+import com.example.eclothes.API.UserStaticInformation;
+import com.example.eclothes.search.SearchActivity;
 
 public class MainPageActivity extends AppCompatActivity {
 
@@ -26,8 +28,8 @@ public class MainPageActivity extends AppCompatActivity {
 
         //Assign variable
         drawerLayout = findViewById(R.id.drawer_layout);
-        AuthorizationInterceptor.setRole("Merchant");
-        updateMenuByrole(AuthorizationInterceptor.getRole());
+        //AuthorizationInterceptor.setRole("Merchant");
+        updateMenuByrole(UserStaticInformation.getRole());
     }
 
     public void ClickMenu(View view){
@@ -52,6 +54,7 @@ public class MainPageActivity extends AppCompatActivity {
 
     public void ClickShopNearBy(View view){
         //redirectActivity
+        redirectActivity(this, SearchActivity.class);
     }
 
     public void ClickContactUs(View view){

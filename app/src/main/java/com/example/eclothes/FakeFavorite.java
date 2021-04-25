@@ -4,7 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+
+import com.example.eclothes.search.SearchActivity;
 
 public class FakeFavorite extends AppCompatActivity {
 
@@ -37,6 +40,12 @@ public class FakeFavorite extends AppCompatActivity {
     public void ClickFavorite(View view){
         //Redirect
         MainPageActivity.closeDrawer(drawerLayout);
+    }
+
+    public void ClickShopNearBy(View view){
+        Log.i("ClickShopNearBy", "Search Clicked!");
+        //redirectActivity
+        MainPageActivity.redirectActivity(this, SearchActivity.class);
     }
 
     public void ClickLogout(View view){

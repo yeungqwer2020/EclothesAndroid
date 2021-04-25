@@ -26,6 +26,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.eclothes.API.UserStaticInformation;
 import com.example.eclothes.alan.ProductPage;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.squareup.picasso.Picasso;
@@ -69,7 +70,7 @@ public class ShopmainActivity extends AppCompatActivity {
 
     //String role;
     String merchantid;
-    String usermerchant;
+    String usermerchant = UserStaticInformation.getUserId();
     String shopphoto;
     String photooo;
 
@@ -93,7 +94,6 @@ public class ShopmainActivity extends AppCompatActivity {
         if (extras != null){
             //role = extras.getString("role");
             merchantid = extras.getString("merchantid");
-            usermerchant = extras.getString("usermerchant");
         }
 
         prepare_news(0);
@@ -113,11 +113,11 @@ public class ShopmainActivity extends AppCompatActivity {
         });
 
 
-        /* //check whether the login user is owner or not
+         //check whether the login user is owner or not
         if (merchantid.compareTo(usermerchant) == 0)
             owner = true;
         else
-            owner = false;*/
+            owner = false;
         owner = true;
 
         if (owner == true)
@@ -175,8 +175,8 @@ public class ShopmainActivity extends AppCompatActivity {
     }
 
     private void popupshopinfo() {
-        //String shopid = merchantid;
-        String shopid = "606b57c8a307473eb5d3f7f7";
+        String shopid = merchantid;
+        //String shopid = "606b57c8a307473eb5d3f7f7";
         String shopinfourl = "http://ec2-54-175-85-90.compute-1.amazonaws.com/api/v1/merchants/" + shopid;
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, shopinfourl, null, new Response.Listener<JSONObject>() {
@@ -289,8 +289,8 @@ public class ShopmainActivity extends AppCompatActivity {
     }
 
     public void prepare_news(int a) {
-        //String merchantid2 = merchantid;
-        String merchantid2 = "60703e1aaa1c68484a568778";
+        String merchantid2 = merchantid;
+        //String merchantid2 = "60703e1aaa1c68484a568778";
         String url = "http://ec2-54-175-85-90.compute-1.amazonaws.com/api/v1/merchants/" + merchantid2 + "/products?sort=createdAt";
 
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {

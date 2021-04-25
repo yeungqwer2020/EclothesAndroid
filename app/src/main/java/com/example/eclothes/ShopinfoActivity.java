@@ -100,8 +100,8 @@ public class ShopinfoActivity extends AppCompatActivity {
     }
 
     private void showshopinfo() {
-        //String shopid = merchantid;
-        String shopid = "6070668934ec3a5b70a726f4";
+        String shopid = merchantid;
+        //String shopid = "6070668934ec3a5b70a726f4";
         String shopinfourl = "http://ec2-54-175-85-90.compute-1.amazonaws.com/api/v1/merchants/" + shopid;
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, shopinfourl, null, new Response.Listener<JSONObject>() {
